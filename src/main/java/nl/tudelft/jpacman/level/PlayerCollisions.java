@@ -7,7 +7,7 @@ import nl.tudelft.jpacman.points.PointCalculator;
 /**
  * A simple implementation of a collision map for the JPacman player.
  * <p>
- * It uses a number of instanceof checks to implement the multiple dispatch for the 
+ * It uses a number of instanceof checks to implement the multiple dispatch for the
  * collisionmap. For more realistic collision maps, this approach will not scale,
  * and the recommended approach is to use a {@link CollisionInteractionMap}.
  *
@@ -75,7 +75,7 @@ public class PlayerCollisions implements CollisionMap {
      */
     public void playerVersusGhost(Player player, Ghost ghost) {
         pointCalculator.collidedWithAGhost(player, ghost);
-        player.setAlive(false);
+        player.removeOneLive();
         player.setKiller(ghost);
     }
 
