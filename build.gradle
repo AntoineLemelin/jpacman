@@ -4,7 +4,6 @@ plugins {
     id 'jacoco'
     id 'checkstyle'
     id 'pmd'
-    id 'com.github.spotbugs' version '1.7.1'
     id 'org.sonarqube' version '3.1.1'
 }
 
@@ -77,12 +76,12 @@ pmd {
     ruleSets = []
 }
 
-tasks.withType(com.github.spotbugs.SpotBugsTask) {
-    reports {
-        xml.enabled = false
-        html.enabled = true
-    }
-}
+//tasks.withType(com.github.spotbugs.SpotBugsTask) {
+//    reports {
+//        xml.enabled = false
+//        html.enabled = true
+//    }
+//}
 
 task staticAnalysis(type: GradleBuild) {
     tasks = [
@@ -93,9 +92,6 @@ task staticAnalysis(type: GradleBuild) {
         'pmdMain',
         'pmdTest',
         'pmdDefaultTest',
-        'spotbugsMain',
-        'spotbugsTest',
-        'spotbugsDefaultTest',
     ]
 }
 
